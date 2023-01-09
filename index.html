@@ -1,10 +1,80 @@
-<div>
-    <a
-      rel="ar"
-      href="https://roxanajula.com/wp-content/uploads/2020/09/Adidas_Originals_Stan_Smith.usdz"
-    >
-      <img
-        src="https://roxanajula.com/wp-content/uploads/2020/09/Adidas_Originals_Stan_Smith.jpg"
-      />
-    </a>
-  </div>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>AR Example</title>
+    </head>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html {
+            width: 320px;
+            margin: 0 auto;
+            padding: 1em;
+            background: #f7f7f7;
+        }
+        a {
+            display: inline-block;
+            text-decoration: none;
+        }
+        img {
+            width: 288px;
+            height: 288px;
+            background: white;
+            border-radius: 2px;
+        }
+    </style>
+
+    <body>
+
+        <img src="https://alexandermonachino.com/ar-quick-look/assets/bell_thumb.jpg" alt="Bell Moto-9 Helmet" data-ar-fp="https://alexandermonachino.com/ar-quick-look/assets/bell.usdz">
+        <script>
+            const isiOS12OrNewer = () => {
+
+            const iOS = /iP(hone|od|ad)/.test(navigator.userAgent) && !window.MSStream;
+            const iOSVersion = iOS && parseInt(navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/)[1], 10);
+
+            if ( iOS && iOSVersion >= 12 ) { return true; }
+            else { return false; }
+
+            }
+
+            const enhanceWithARQuickLook = () => {
+
+            // if the host device supports AR Quick Look...
+            if ( isiOS12OrNewer() ) {
+
+                const attr = 'data-ar-fp',
+                    elements = document.querySelectorAll('['+attr+']');
+
+                // if there are AR-ready links on the page...
+                if ( elements.length > 0 ) {
+
+                    // convert AR-ready links
+                    for ( var i in elements ) {
+
+                        const instance = elements[i],
+                            a = document.createElement('a');
+                        a.setAttribute('href', instance.getAttribute(attr));
+                        a.setAttribute('rel', 'ar');
+                        instance.removeAttribute(attr);
+                        instance.parentNode.insertBefore(a, instance);
+                        a.appendChild(instance);
+
+                    }
+
+                }
+
+            }
+
+            };
+
+            enhanceWithARQuickLook();
+        </script>
+    </body>
+
+</html>

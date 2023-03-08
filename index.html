@@ -4,41 +4,59 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>AR Example</title>
-    </head>
-    <style type="text/css">
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-		body {
-			padding: 20px;
-			background-color: #242424;
-		}
-		.title {
-			display: flex;
-			align-items: center;
-			margin-bottom: 16px;
-			font-size: 40px;
-			color: white;
-		}
-		div {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-		}
-		div, img {
-			width: 350px;
-		}
-    </style>
-
+		<style type="text/css">
+			@font-face {
+				font-family: 'Graphik-Medium';
+				src: url('./fonts/Graphik-Medium.otf');
+			}
+			@font-face {
+				font-family: 'Graphik-Light';
+				src: url('./fonts/Graphik-Light.otf');
+			}
+			* {
+				font-family: 'Graphik-Medium';
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			body {
+				padding: 20px;
+				color: white;
+				background-color: #202023;
+			}
+			.title {
+				display: flex;
+				align-items: center;
+				margin-bottom: 12px;
+				font-size: 28px;
+			}
+			.subtitle {
+				font-family: 'Graphik-Light';
+				font-size: 18px;
+			}
+			.ar-container {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			.ar-container > .ar-file {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.ar-file > img {
+				width: 80%;
+			}
+		</style>
+	</head>
     <body>
-		<div class="title">SuperSport</div>
-		<div>
-			<a rel="ar" href="./assets/Gogorolll_v003.usdz">
-				<img src="./assets/preview.png">
+		<div class="ar-container">
+			<a rel="ar" href="./assets/Gogorolll_v003.usdz" class="ar-file">
+				<img src="./assets/supersport.png">
 			</a>
+			<div class="title">Gogoro SuperSport ACE</div>
+			<div class="subtitle">ABS / TCS Pro* / LT</div>
 		</div>
     </body>
 </html>
